@@ -105,8 +105,12 @@
           if (answered) return;
           answered = true;
           const correct = i === q.answer;
-          document.getElementById("result").innerText = correct ? "✅ Правильно" : "❌ Неправильно";
-          if (correct) score++;
+          if (correct) {
+            document.getElementById("result").innerText = "✅ Правильно";
+            score++;
+          } else {
+            document.getElementById("result").innerText = `❌ Неправильно. Правильный ответ: ${q.options[q.answer]}`;
+          }
         };
         optionsDiv.appendChild(btn);
       });
